@@ -1,3 +1,5 @@
+Forked from original repo at https://github.com/srl-freiburg/pedsim_ros
+
 # Pedestrian Simulator
 <img src=https://github.com/srl-freiburg/pedsim_ros/blob/master/pedsim_simulator/images/crowd1.png width=400/> | <img src=https://github.com/srl-freiburg/pedsim_ros/blob/master/pedsim_simulator/images/costmap.png width=400/>
 

@@ -7,7 +7,7 @@ if len(sys.argv) != 3:
     exit()
 
 world_file = sys.argv[1]
-num_agents = sys.argv[2]
+num_agents = int(sys.argv[2])
 
 f = open(world_file, "r+")
 contents = f.readlines()
@@ -19,7 +19,7 @@ for i in range(len(contents)):
         actor_insert_line = i + 1
         break
 
-for i in range(30):
+for i in range(num_agents):
     actor_name = "walking" + str(i)
     contents.insert(actor_insert_line, '\t\t</actor>\n')
     contents.insert(actor_insert_line, '\t\t\t</plugin>\n')

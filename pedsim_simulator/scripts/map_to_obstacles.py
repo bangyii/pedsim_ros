@@ -41,7 +41,7 @@ element = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
 contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 # Set origin and resolution of obstacles
-x_origin = -12
+x_origin = -12.5
 y_origin = -35
 resolution = 0.05
 for i in range(len(contours)):

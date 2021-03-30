@@ -300,14 +300,6 @@ void SimVisualizer::publishWaypointVisuals() {
     wp_marker.pose.position.z = 0.1;
     waypoint_markers.markers.push_back(wp_marker);
 
-    wp_marker.id = 1;
-    wp_marker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
-    wp_marker.scale.x = 0.0;
-    wp_marker.scale.y = 0.0;
-    wp_marker.text = text;
-    wp_marker.pose.position.z = 0.35;
-    waypoint_markers.markers.push_back(wp_marker);
-
     wp_marker.id = 2;
     wp_marker.text = "";
     wp_marker.type = visualization_msgs::Marker::CYLINDER;
@@ -315,6 +307,16 @@ void SimVisualizer::publishWaypointVisuals() {
     wp_marker.scale.y = waypoint.radius;
     wp_marker.scale.z = 0.01;
     wp_marker.pose.position.z = 0.005;
+    waypoint_markers.markers.push_back(wp_marker);
+
+    wp_marker.id = 1;
+    wp_marker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
+    wp_marker.scale.z = 0.4;
+    wp_marker.color.r = 0.0;
+    wp_marker.color.g = 0.0;
+    wp_marker.color.b = 0.0;
+    wp_marker.text = text;
+    wp_marker.pose.position.z = 0.35;
     waypoint_markers.markers.push_back(wp_marker);
   }
   pub_waypoints_.publish(waypoint_markers);

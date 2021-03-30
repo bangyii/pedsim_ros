@@ -6,12 +6,12 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Grid1
         - /Grid1/Offset1
         - /RobotFrame1
         - /Tracking-Visuals1
         - /Tracking-Visuals1/TrackedPersons1/History as line1
         - /Tracking-Visuals1/TrackedGroups1/Render group IDs1
-        - /TF1
         - /TF1/Frames1
         - /MarkerArray1
         - /MarkerArray1/Namespaces1
@@ -58,7 +58,7 @@ Visualization Manager:
         Y: 15
         Z: 0
       Plane: XY
-      Plane Cell Count: 40
+      Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/Axes
@@ -186,14 +186,22 @@ Visualization Manager:
       Marker Topic: /pedsim_visualizer/waypoints
       Name: MarkerArray
       Namespaces:
-        bookshop_entry: true
-        bookshop_exit: true
-        coffee_entry: true
-        coffee_exit: true
-        coffee_mid: true
-        info_desk: true
-        robot_goal: true
-        robot_start: true
+        goal1: true
+        goal10: true
+        goal11: true
+        goal12: true
+        goal13: true
+        goal14: true
+        goal15: true
+        goal16: true
+        goal2: true
+        goal3: true
+        goal4: true
+        goal5: true
+        goal6: true
+        goal7: true
+        goal8: true
+        goal9: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -224,15 +232,15 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 39.406593322753906
+      Distance: 49.4316291809082
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -10.201589584350586
-        Y: -8.017826080322266
+        X: -9.107406616210938
+        Y: -8.027257919311523
         Z: -1.2986125511815771e-5
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
@@ -242,7 +250,7 @@ Visualization Manager:
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 3.1035635471343994
+      Yaw: 3.133563756942749
     Saved: ~
 Window Geometry:
   "&Displays":

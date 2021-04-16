@@ -8477,7 +8477,7 @@
   <!--Waypoints (incl. WaitingQueues)-->
   <waypoint id="goal1" x="2.5" y="8" r="1"/>
   <waypoint id="goal2" x="5" y="2" r="1"/>
-  <waypoint id="goal3" x="-3.5" y="2" r="1"/>
+  <waypoint id="goal3" x="-4.0" y="2" r="1"/>
   <waypoint id="goal4" x="5" y="-8.5" r="1.5"/>
   <waypoint id="goal5" x="5" y="-14.5" r="1.5"/>
   <waypoint id="goal6" x="5.5" y="-25" r="1"/>
@@ -8553,7 +8553,7 @@
 		<addwaypoint id="goal6"/>
 		<addwaypoint id="goal5"/>
     </agent>
-    <agent x="-5" y="-15" n="3" dx="1" dy="1" type="1">
+    <agent x="-5" y="-15" n="9" dx="1" dy="1" type="1">
 		<addwaypoint id="goal5"/>
 		<addwaypoint id="goal4"/>
 		<addwaypoint id="goal16"/>
@@ -8569,7 +8569,7 @@
 		<addwaypoint id="goal8"/>
 		<addwaypoint id="goal9"/>
     </agent>
-    <agent x="0" y="12" n="6" dx="3" dy="1" type="1">
+    <agent x="0" y="12" n="9" dx="3" dy="1" type="1">
 		<addwaypoint id="goal17"/>
 		<addwaypoint id="goal1"/>
 		<addwaypoint id="goal18"/>

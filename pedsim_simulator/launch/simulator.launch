@@ -31,7 +31,7 @@
   </node>
 
   <!-- Robot controller (optional) -->
-  <group ns="pedbot/control" if="$(arg with_robot)">
+  <!-- <group ns="pedbot/control" if="$(arg with_robot)">
     <include file="$(find pedsim_simulator)/launch/robot_controller.launch">
       <arg name="kbd_teleop" value="$(arg kbd_teleop)"/>
       <arg name="rqt_teleop" value="$(arg rqt_teleop)"/>
@@ -39,6 +39,6 @@
       <arg name="pose_initial_y" value="$(arg pose_initial_y)"/>
       <arg name="pose_initial_theta" value="$(arg pose_initial_theta)"/>
     </include>
-  </group>
+  </group> -->
 
 </launch>

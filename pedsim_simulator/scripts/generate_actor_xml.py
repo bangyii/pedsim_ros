@@ -48,7 +48,7 @@ for i in range(num_agents):
     contents.insert(actor_insert_line, '\t\t\t\t</collision>\n')
     contents.insert(actor_insert_line, '\t\t\t\t\t</geometry>\n')
     contents.insert(actor_insert_line, '\t\t\t\t\t\t</box>\n')
-    contents.insert(actor_insert_line, '\t\t\t\t\t\t\t<size>0.45 1.62 0.45</size>\n')
+    contents.insert(actor_insert_line, '\t\t\t\t\t\t\t<size>0.35 1.62 0.35</size>\n')
     contents.insert(actor_insert_line, '\t\t\t\t\t\t<box>\n')
     contents.insert(actor_insert_line, '\t\t\t\t\t<geometry>\n')
     contents.insert(actor_insert_line, '\t\t\t\t\t<pose>0 -0.18 0.05 0 -1.5707963267948966 0</pose>\n')

@@ -64,9 +64,9 @@ double RandomForce::getFadingTime() const { return fadingDuration; }
 Ped::Tvector RandomForce::computeNewDeviation() {
   // set up random distributions
   uniform_real_distribution<double> angleDistribution(0, 360);
-  double deviationAngle = angleDistribution(RNG());
+  double deviationAngle = angleDistribution(RNG::getInstance()());
   normal_distribution<double> distanceDistribution(0, 1);
-  double deviationDistance = distanceDistribution(RNG());
+  double deviationDistance = distanceDistribution(RNG::getInstance()());
 
   // create deviation from polar coordinates
   Ped::Tvector deviation = Ped::Tvector::fromPolar(

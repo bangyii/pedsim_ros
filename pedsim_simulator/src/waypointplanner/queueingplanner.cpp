@@ -250,11 +250,11 @@ void QueueingWaypointPlanner::addPrivateSpace(Ped::Tvector& queueEndIn) const {
   std::uniform_real_distribution<double> heading_range_(-45.0, 45.0);
 
   // randomize spacing and heading in queues
-  double privateSpaceDirection = heading_range_(RNG());
+  double privateSpaceDirection = heading_range_(RNG::getInstance()());
   Ped::Tangle orientation;
   orientation.setDegree(privateSpaceDirection);
 
-  double privateSpaceDistance = spacing_range_(RNG());
+  double privateSpaceDistance = spacing_range_(RNG::getInstance()());
   Ped::Tvector queueOffset(Ped::Tvector::fromPolar(
       waitingQueue->getDirection() + orientation, privateSpaceDistance));
   queueEndIn -= queueOffset;

@@ -63,8 +63,8 @@ QList<Agent*> AgentCluster::dissolve() {
     double randomizedX = position.x;
     double randomizedY = position.y;
     // handle dx=0 or dy=0 cases
-    if (distribution.width() != 0) randomizedX += randomX(RNG());
-    if (distribution.height() != 0) randomizedY += randomY(RNG());
+    if (distribution.width() != 0) randomizedX += randomX(RNG::getInstance()());
+    if (distribution.height() != 0) randomizedY += randomY(RNG::getInstance()());
     a->setPosition(randomizedX, randomizedY);
     a->setType(agentType);
 

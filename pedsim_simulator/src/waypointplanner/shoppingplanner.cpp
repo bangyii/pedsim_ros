@@ -175,8 +175,8 @@ Ped::Tvector ShoppingPlanner::getRandomAttractionPosition() const {
   std::uniform_real_distribution<double> yDistribution(-size.height() / 2,
                                                        size.height() / 2);
 
-  double xdiff = xDistribution(RNG());
-  double ydiff = yDistribution(RNG());
+  double xdiff = xDistribution(RNG::getInstance()());
+  double ydiff = yDistribution(RNG::getInstance()());
 
   randomPosition += Ped::Tvector(xdiff, ydiff);
 
@@ -186,11 +186,11 @@ Ped::Tvector ShoppingPlanner::getRandomAttractionPosition() const {
 Ped::Tvector ShoppingPlanner::createRandomOffset() const {
   const double radiusStd = 4;
   std::normal_distribution<double> radiusDistribution(0, radiusStd);
-  double radius = radiusDistribution(RNG());
+  double radius = radiusDistribution(RNG::getInstance()());
 
   std::discrete_distribution<int> angleDistribution{0,   45,  90,  135, 180,
                                                     225, 270, 315, 360};
-  double angle = angleDistribution(RNG());
+  double angle = angleDistribution(RNG::getInstance()());
 
   Ped::Tvector randomOffset =
       Ped::Tvector::fromPolar(Ped::Tangle::fromDegree(angle), radius);

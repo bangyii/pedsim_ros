@@ -105,7 +105,7 @@ void AgentStateMachine::doStateTransition() {
                              CONFIG.getTimeStepSize();
         std::bernoulli_distribution isAttracted(probability);
 
-        if (isAttracted(RNG())) {
+        if (isAttracted(RNG::getInstance()())) {
           normalState = state;
           activateState(StateShopping);
           return;
@@ -121,7 +121,7 @@ void AgentStateMachine::doStateTransition() {
     std::bernoulli_distribution isAttracted(probability *
                                             CONFIG.getTimeStepSize());
 
-    if (shallLoseAttraction || isAttracted(RNG())) {
+    if (shallLoseAttraction || isAttracted(RNG::getInstance()())) {
       // reactivate previous state
       activateState(normalState);
 

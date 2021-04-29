@@ -35,6 +35,7 @@
 #include <pedsim_simulator/element/agentcluster.h>
 #include <pedsim_simulator/scene.h>
 #include <pedsim_simulator/simulator.h>
+#include <pedsim_simulator/rng.h>
 
 #include <pedsim_utils/geometry.h>
 
@@ -116,6 +117,16 @@ bool Simulator::initializeSimulation() {
   nh_.param<double>("max_robot_speed", CONFIG.max_robot_speed, 1.5);
   nh_.param<double>("update_rate", CONFIG.updateRate, 25.0);
   nh_.param<double>("simulation_factor", CONFIG.simulationFactor, 1.0);
+
+  //If seed is defined, then preemptively call RNG instance to create instance with defined seed
+  if(nh_.hasParam("seed"))
+  {
+    int seed = 0;
+    nh_.param<int>("seed", seed, 0);
+    if(seed != 0)
+      ROS_INFO("Using fixed random seed of %d", seed);
+    RNG::getInstance(seed);
+  }
 
   int op_mode = 1;
   nh_.param<int>("robot_mode", op_mode, 1);

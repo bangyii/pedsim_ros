@@ -216,7 +216,7 @@ void WaitingQueue::startDequeueTime() {
   const double beta = 0.5;
   gamma_distribution<> distribution(alpha, beta);
 
-  double waitDuration = distribution(RNG());
+  double waitDuration = distribution(RNG::getInstance()());
   dequeueTime = SCENE.getTime() + waitDuration;
 }
 

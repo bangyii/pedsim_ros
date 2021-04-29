@@ -37,17 +37,16 @@
 /// \class RandomNumberGenerator
 /// \details Random number generation for various distributions
 /// -----------------------------------------------------------------
-class RandomNumberGenerator {
+class RNG {
  protected:
-  RandomNumberGenerator();
+  RNG(uint seed_ = 0);
 
 // Singleton Design Pattern
-#define RNG RandomNumberGenerator::getInstance()
  protected:
-  static RandomNumberGenerator* instance;
+  static RNG* instance;
 
  public:
-  static RandomNumberGenerator& getInstance();
+  static RNG& getInstance(uint seed_ = 0);
 
   // Operators
  public:

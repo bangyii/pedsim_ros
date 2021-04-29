@@ -121,7 +121,7 @@ QList<AgentGroup*> AgentGroup::divideAgents(const QList<Agent*>& agentsIn) {
     // (don't use group size = 0)
     int groupSize;
     do {
-      groupSize = distribution(RNG());
+      groupSize = distribution(RNG::getInstance()());
     } while (groupSize == 0);
     // → limit group size to the number of agents left
     groupSize = min(groupSize, agentCount - sizeSum);

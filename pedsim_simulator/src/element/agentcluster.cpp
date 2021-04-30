@@ -34,7 +34,7 @@
 #include <pedsim_simulator/rng.h>
 #include <pedsim_simulator/scene.h>
 
-AgentCluster::AgentCluster(double xIn, double yIn, int countIn) {
+AgentCluster::AgentCluster(double xIn, double yIn, int countIn, double robotPosScalingFactor) {
   static int lastID = 0;
 
   // initialize values
@@ -43,6 +43,7 @@ AgentCluster::AgentCluster(double xIn, double yIn, int countIn) {
   count = countIn;
   distribution = QSizeF(0, 0);
   agentType = Ped::Tagent::ADULT;
+  robot_scaling_factor = robotPosScalingFactor;
   shallCreateGroups = true;
 };
 
@@ -67,6 +68,7 @@ QList<Agent*> AgentCluster::dissolve() {
     if (distribution.height() != 0) randomizedY += randomY(RNG::getInstance()());
     a->setPosition(randomizedX, randomizedY);
     a->setType(agentType);
+    a->setRobotPosDiffScalingFactor(robot_scaling_factor);
 
     // add waypoints to the agent
     foreach (Waypoint* waypoint, waypoints)

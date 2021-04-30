@@ -137,7 +137,8 @@ void ScenarioReader::processData() {
       const double dx = elementAttributes.value("dx").toString().toDouble();
       const double dy = elementAttributes.value("dy").toString().toDouble();
       const int type = elementAttributes.value("type").toString().toInt();
-      AgentCluster* agentCluster = new AgentCluster(x, y, n);
+      const double robot_pos_scaling = elementAttributes.value("robot_pos_scaling_factor").toString().toDouble();
+      AgentCluster* agentCluster = new AgentCluster(x, y, n, robot_pos_scaling);
       agentCluster->setDistribution(dx, dy);
 
       /// TODO - change agents Vmax distribution based on agent type

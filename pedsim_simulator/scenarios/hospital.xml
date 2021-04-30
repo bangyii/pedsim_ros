@@ -8507,7 +8507,7 @@
     <agent x="0" y="10" n="1" dx="0" dy="0" type="2">
     </agent>
     <!--AgentClusters-->
-    <agent x="0" y="10" n="5" dx="3" dy="3" type="0">
+    <agent x="0" y="10" n="5" dx="3" dy="3" type="0" robot_pos_scaling_factor="100">
         <addwaypoint id="goal1"/>
         <addwaypoint id="goal2"/>
         <addwaypoint id="goal3"/>
@@ -8525,7 +8525,7 @@
         <addwaypoint id="goal3"/>
         <addwaypoint id="goal14"/>
     </agent>
-    <agent x="0" y="10" n="5" dx="3" dy="3" type="1">
+    <agent x="0" y="10" n="5" dx="3" dy="3" type="1" robot_pos_scaling_factor="100">
 		<addwaypoint id="goal14"/>
 		<addwaypoint id="goal3"/>
 		<addwaypoint id="goal15"/>
@@ -8541,7 +8541,7 @@
 		<addwaypoint id="goal1"/>
 		<addwaypoint id="goal18"/>
     </agent>
-    <agent x="5.5" y="-15" n="5" dx="1" dy="1" type="0">
+    <agent x="5.5" y="-15" n="5" dx="1" dy="1" type="0" robot_pos_scaling_factor="100">
 		<addwaypoint id="goal9"/>
 		<addwaypoint id="goal10"/>
 		<addwaypoint id="goal6"/>
@@ -8553,7 +8553,7 @@
 		<addwaypoint id="goal6"/>
 		<addwaypoint id="goal5"/>
     </agent>
-    <agent x="-5" y="-15" n="9" dx="1" dy="1" type="1">
+    <agent x="-5" y="-15" n="9" dx="1" dy="1" type="1" robot_pos_scaling_factor="100">
 		<addwaypoint id="goal5"/>
 		<addwaypoint id="goal4"/>
 		<addwaypoint id="goal16"/>
@@ -8569,7 +8569,7 @@
 		<addwaypoint id="goal8"/>
 		<addwaypoint id="goal9"/>
     </agent>
-    <agent x="0" y="12" n="9" dx="3" dy="1" type="1">
+    <agent x="0" y="12" n="9" dx="3" dy="1" type="1" robot_pos_scaling_factor="100">
 		<addwaypoint id="goal17"/>
 		<addwaypoint id="goal1"/>
 		<addwaypoint id="goal18"/>

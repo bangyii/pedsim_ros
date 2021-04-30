@@ -43,7 +43,7 @@ class AgentCluster : public ScenarioElement {
 
   // Constructor and Destructor
  public:
-  AgentCluster(double xIn = 0, double yIn = 0, int countIn = 1);
+  AgentCluster(double xIn = 0, double yIn = 0, int countIn = 1, double robotPosScalingFactor = 5.0);
   virtual ~AgentCluster();
 
   // Signals
@@ -88,6 +88,7 @@ class AgentCluster : public ScenarioElement {
   int id;
   Ped::Tvector position;
   int count;
+  double robot_scaling_factor;
   QSizeF distribution;
   Ped::Tagent::AgentType agentType;
   bool shallCreateGroups;

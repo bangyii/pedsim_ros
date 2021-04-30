@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
@@ -15,6 +16,7 @@
   <arg name="spawn_period" default="5.0"/>
   <arg name="robot_base_frame_id" default="base_link"/>
   <arg name="frame_id" default="odom"/>
+  <arg name="robot_radius" default="0.45"/>
   <arg name="seed" default="0"/> <!-- Set seed to greater than 0 to use fixed seed-->
 
   <!-- main simulator node -->
@@ -30,6 +32,7 @@
     <param name="robot_base_frame_id" value="$(arg robot_base_frame_id)" type="string"/>
     <param name="frame_id" value="$(arg frame_id)" type="string"/>
     <param name="seed" value="$(arg seed)" type="int"/>
+    <param name="robot_radius" value="$(arg robot_radius)" type="double"/>
   </node>
 
   <!-- Robot controller (optional) -->

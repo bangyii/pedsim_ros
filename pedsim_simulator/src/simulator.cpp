@@ -157,6 +157,12 @@ void Simulator::runSimulation() {
           robot_ = agent;
           last_robot_orientation_ =
               poseFrom2DVelocity(robot_->getvx(), robot_->getvy());
+
+          //Get robot radius
+          double robot_radius = 0.35;
+          nh_.param<double>("robot_radius", robot_radius, 0.35);
+          robot_->SetRadius(robot_radius);
+          ROS_INFO("Robot radius set to %f", robot_radius);
         }
       }
     }

@@ -6,17 +6,14 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Grid1
         - /Grid1/Offset1
-        - /RobotFrame1
         - /Tracking-Visuals1/TrackedPersons1/History as line1
         - /Tracking-Visuals1/TrackedGroups1
         - /Tracking-Visuals1/TrackedGroups1/Render group IDs1
         - /Waypoints1/Namespaces1
         - /MarkerArray1
-        - /Marker1
-        - /Marker2
-        - /Path1
+        - /Marker3
+        - /Marker3/Namespaces1
       Splitter Ratio: 0.5843881964683533
     Tree Height: 653
   - Class: rviz/Selection
@@ -37,7 +34,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -77,10 +74,10 @@ Visualization Manager:
           Marker Topic: /pedsim_visualizer/walls
           Name: Walls
           Namespaces:
-            "": true
+            {}
           Queue Size: 0
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Pedsim-Visuals
     - Class: rviz/Group
       Displays:
@@ -161,20 +158,43 @@ Visualization Manager:
           Z offset:
             Use Z position from message: false
             Value: 0
-      Enabled: true
+      Enabled: false
       Name: Tracking-Visuals
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        laser_link:
+          Value: true
+        left_wheel_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        right_wheel_link:
+          Value: true
       Marker Scale: 5
       Name: TF
       Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_footprint:
+              base_link:
+                laser_link:
+                  {}
+              left_wheel_link:
+                {}
+              right_wheel_link:
+                {}
       Update Interval: 0
       Value: true
     - Class: rviz/MarkerArray
@@ -196,13 +216,13 @@ Visualization Manager:
       Use Timestamp: false
       Value: true
     - Class: rviz/MarkerArray
-      Enabled: true
+      Enabled: false
       Marker Topic: /markers/obstacle
       Name: MarkerArray
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /visualization/path
@@ -251,7 +271,7 @@ Visualization Manager:
       Value: true
     - Circles color: 170; 0; 0
       Class: Obstacles
-      Enabled: true
+      Enabled: false
       Margin color: 0; 170; 0
       Name: Obstacles
       Opacity: 0.75
@@ -259,7 +279,7 @@ Visualization Manager:
       Segments thickness: 0.029999999329447746
       Topic: /obstacles
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
@@ -283,11 +303,84 @@ Visualization Manager:
       Topic: /move_base/SharedVoronoiGlobalPlanner/plan
       Unreliable: false
       Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Local Costmap
+      Topic: /move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Global Costmap
+      Topic: /move_base/global_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Global Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/GlobalPlanner/plan
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: TEB Poses
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Arrow (Flat)
+      Topic: /move_base/TebLocalPlannerROS/teb_poses
+      Unreliable: false
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /move_base/TebLocalPlannerROS/teb_markers
+      Name: Marker
+      Namespaces:
+        CircularObstacles: true
+        InfeasibleRobotPoses: true
+        LineObstacles: true
+        PointObstacles: true
+        PolyObstacles: true
+        RobotFootprintModel: true
+        TebContainer: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 244; 244; 244
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -311,25 +404,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 36.15682601928711
+      Distance: 24.932235717773438
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -9.016365051269531
-        Y: -6.1070075035095215
+        X: 9.957252502441406
+        Y: 0.12140297889709473
         Z: -2.824491457431577e-5
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5697963237762451
+      Pitch: 1.519796371459961
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 3.138561725616455
+      Yaw: 4.708560466766357
     Saved: ~
 Window Geometry:
   "&Displays":

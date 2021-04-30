@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
@@ -9,11 +10,13 @@
 
   <arg name="scenario" default="social_contexts"/>
   <arg name="seed" default="0"/>
+  <arg name="robot_radius" default="0.4"/> <!-- Only seems to affect robot and obstacle forces, not robot agent forces-->
 
   <!-- Simulator -->
   <include file="$(find pedsim_simulator)/launch/simulator.launch">
     <arg name="kbd_teleop" value="$(arg kbd_teleop)"/>
     <arg name="seed" value="$(arg seed)"/>
+    <arg name="robot_radius" value="$(arg robot_radius)"/>
     <arg name="rqt_teleop" value="$(arg rqt_teleop)"/>
     <arg name="scene_file" value="$(find pedsim_simulator)scenarios/$(arg scenario).xml"/>
     <arg name="with_robot" value="$(arg with_robot)"/>

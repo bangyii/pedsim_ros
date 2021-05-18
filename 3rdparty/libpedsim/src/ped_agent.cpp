@@ -177,17 +177,16 @@ Ped::Tvector Ped::Tagent::socialForce() const {
     // compute model parameter B = gamma * ||D||
     double B = gamma * interactionLength;
 
-    double thetaRad = theta.toRadian();
-    double forceVelocityAmount =
-        -exp(-diff.length() / B -
-             (n_prime * B * thetaRad) * (n_prime * B * thetaRad));
-    double forceAngleAmount =
-        -theta.sign() *
-        exp(-diff.length() / B - (n * B * thetaRad) * (n * B * thetaRad));
+    //Remap theta to increase importance field upto approximately 120deg (0deg is forward). Mapping maps larger angles to smaller angles
+    double thetaRad = theta.sign() * M_PI * 1 / (1 + exp(-6 * (fabs(theta.toRadian()) / M_PI - 0.6)));
+    if(other->getType() != ROBOT)
+	    thetaRad = theta.toRadian();
+
+    double forceVelocityAmount = -exp(-diff.length() / B - (n_prime * B * thetaRad) * (n_prime * B * thetaRad));
+    double forceAngleAmount = -theta.sign() * exp(-diff.length() / B - (n * B * thetaRad) * (n * B * thetaRad));
 
     Tvector forceVelocity = forceVelocityAmount * interactionDirection;
-    Tvector forceAngle =
-        forceAngleAmount * interactionDirection.leftNormalVector();
+    Tvector forceAngle = forceAngleAmount * interactionDirection.leftNormalVector();
 
     force += forceVelocity + forceAngle;
   }
@@ -208,8 +207,7 @@ Ped::Tvector Ped::Tagent::obstacleForce() const {
     Ped::Tvector closestPoint = obstacle->closestPoint(p);
     Ped::Tvector diff = p - closestPoint;
     double distanceSquared = diff.lengthSquared();  // use squared distance to
-    // avoid computing square
-    // root
+    // avoid computing square root
     if (distanceSquared < minDistanceSquared) {
       minDistanceSquared = distanceSquared;
       minDiff = diff;

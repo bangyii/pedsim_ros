@@ -20,7 +20,7 @@
   <arg name="seed" default="0"/> <!-- Set seed to greater than 0 to use fixed seed-->
 
   <!-- main simulator node -->
-  <node name="pedsim_simulator" pkg="pedsim_simulator" type="pedsim_simulator" output="screen">
+  <node name="pedsim_simulator" pkg="pedsim_simulator" type="pedsim_simulator" output="screen" respawn="true">
     <param name="scene_file" value="$(arg scene_file)" type="string"/>
     <param name="default_queue_size" value="$(arg default_queue_size)" type="int"/>
     <param name="max_robot_speed" value="$(arg max_robot_speed)" type="double"/>
